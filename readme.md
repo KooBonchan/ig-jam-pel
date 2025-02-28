@@ -1,16 +1,15 @@
-# Project Overview: BassJam
+# Project Overview: igJAMpəl
 
 ## Introduction
 
-**BassJam** is a web-based dashboard designed to help bass guitarists like me improve their skills through **interactive jam sessions** and **personalized progress tracking**. The platform provides users with an engaging environment where they can practice, record, and track their learning journey in a meaningful way.
+**igJAMpəl** is a web-based dashboard designed to help bass guitarists like me improve their skills through **interactive jam sessions** and **personalized progress tracking**. The platform provides users with an engaging environment where they can practice, record, and track their learning journey in a meaningful way.
 
 The primary goal is to make the learning process fun, personalized, and responsive. By using real-time interactions, users can fine-tune their skills and challenge themselves through personalized jam sessions and progress tracking features.
 
 ## Features
 
 ### 1. **User Authentication**
-- **Login/Sign Up**: Secure user authentication with email/password or social media integrations (e.g., Google or GitHub).
-- **User Profiles**: Each user has a personalized dashboard where their progress and recordings are stored.
+- **Login/Sign Up**: Secure user authentication with google OAuth2.0
   
 ### 2. **Interactive Jam Sessions**
 - **Jam Tracks**: Users can practice with a variety of bass-friendly jam tracks, designed to fit various skill levels and genres.
