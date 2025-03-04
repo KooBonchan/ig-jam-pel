@@ -1,0 +1,17 @@
+spring:
+  profiles:
+    active: common, secret
+
+---
+spring:
+  profiles: common
+  application.name: igjampel
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            scope: openid, profile, email
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+
+server.port: 8094
