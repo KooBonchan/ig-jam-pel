@@ -1,10 +1,10 @@
-import React from 'react';
-import { Box, AppBar, Toolbar, styled, Stack, IconButton, Badge, Button } from '@mui/material';
+import { AppBar, Badge, Box, IconButton, Toolbar, styled } from '@mui/material';
 import PropTypes from 'prop-types';
+import React from 'react';
 
 // components
-import Profile from './Profile';
 import { IconBellRinging, IconMenu } from '@tabler/icons-react';
+import Profile from './Profile';
 
 const Header = (props) => {
 
@@ -62,12 +62,7 @@ const Header = (props) => {
 
         </IconButton>
         <Box flexGrow={1} />
-        <Stack spacing={1} direction="row" alignItems="center">
-          <Button variant="contained" color="primary"  target="_blank" href="https://adminmart.com/product/modernize-react-mui-dashboard-template/?ref=56">
-            Check Pro Template
-          </Button>
-          <Profile />
-        </Stack>
+        <Profile />
       </ToolbarStyled>
     </AppBarStyled>
   );

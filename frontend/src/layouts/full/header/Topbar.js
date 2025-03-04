@@ -43,27 +43,20 @@ const Topbar = (props) => {
   return (
     <AppBarStyled position="sticky" color="default">
       <ToolbarStyled sx={{flexWrap:"wrap"}} >
-              <Stack
-                  spacing={{ xs: 1, sm: 8 }}
-                  direction="row"
-                  useFlexGap
-                  sx={{ flexWrap: 'wrap', justifyContent:{xs:"center", lg:"between"}, paddingY:{xs:"8px" , lg:"0px"} , width:{xs:"100%" , lg:"auto"} }}
-              >
-                 <img src={adminmartLogo} alt="logo" />
-               <Stack spacing={1} direction="row" sx={{flexWrap:'wrap' , display : {xs:"none",lg:"flex"} }} >
-               <Link to="https://adminmart.com/support/" target='_blank' ><GhostButton startIcon={<IconLifebuoy size={18} />} variant="contained">Support</GhostButton></Link>
-               <Link to="https://adminmart.com/" target='_blank' ><GhostButton startIcon={<IconGift size={18} />} variant="contained">Templates</GhostButton></Link>
-               <Link to="https://adminmart.com/hire-us/" target='_blank' ><GhostButton startIcon={<IconBriefcase size={18} />} variant="contained">Hire Us</GhostButton></Link>
-               </Stack>
-                
-              </Stack>
-        <Box flexGrow={1} />
-        <Stack spacing={1} direction="row" alignItems="center" sx={{ flexWrap: 'wrap', justifyContent:"center" , gap:{xs:"10px" , lg:"0px"} , padding:{xs:"0px 0px 10px 0px" , lg:"0px 0px"} }}>
-        <Typography variant="h5" sx={{ color: (theme) => theme.palette.primary.contrastText }} >Check Modernize Premium Version</Typography>
-        {/* <DropdownMenu/> */}
-        <LivePreviewDropdown/>
-        <BuyNowDropdown/>
+        <Stack
+            spacing={{ xs: 1, sm: 8 }}
+            direction="row"
+            useFlexGap
+            sx={{ flexWrap: 'wrap', justifyContent:{xs:"center", lg:"between"}, paddingY:{xs:"8px" , lg:"0px"} , width:{xs:"100%" , lg:"auto"} }}
+        >
+            <img src={adminmartLogo} alt="logo" />
+          <Stack spacing={1} direction="row" sx={{flexWrap:'wrap' , display : {xs:"none",lg:"flex"} }} >
+            <Link to="https://adminmart.com/support/" target='_blank' ><GhostButton startIcon={<IconLifebuoy size={18} />} variant="contained">Support</GhostButton></Link>
+            <Link to="https://adminmart.com/" target='_blank' ><GhostButton startIcon={<IconGift size={18} />} variant="contained">Templates</GhostButton></Link>
+            <Link to="https://adminmart.com/hire-us/" target='_blank' ><GhostButton startIcon={<IconBriefcase size={18} />} variant="contained">Hire Us</GhostButton></Link>
+          </Stack>
         </Stack>
+        <Box flexGrow={1} />
       </ToolbarStyled>
     </AppBarStyled>
   );
