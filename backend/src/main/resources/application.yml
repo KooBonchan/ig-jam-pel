@@ -3,9 +3,11 @@ spring:
     active: common, secret
 
 ---
+spring.config.activate.on-profile: common
+
 spring:
-  profiles: common
   application.name: igjampel
+  mvc.servlet.path: /api
   security:
     oauth2:
       client:

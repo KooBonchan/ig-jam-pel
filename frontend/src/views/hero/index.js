@@ -58,8 +58,7 @@ const GoogleButton = styled(Button)({
 
 const Hero = () => {
   const handleGoogleSignIn = () => {
-    console.log("Google sign-in clicked");
-    // Integrate Google OAuth here
+    window.location.href = 'http://localhost:8094/oauth2/authorization/google';
   };
 
   return (
