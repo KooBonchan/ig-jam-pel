@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Box, Typography } from "@mui/material";
 import { styled } from "@mui/system";
+import HeroImage from 'src/assets/images/backgrounds/kari-shea-laHwVPkMTzY-unsplash.jpg';
 import GoogleIcon from '@mui/icons-material/Google';
 
 const HeroContainer = styled(Box)({
@@ -9,7 +10,7 @@ const HeroContainer = styled(Box)({
   justifyContent: "center",
   height: "100vh",
   width: "100vw",
-  backgroundImage: "url('https://source.unsplash.com/random/1920x1080?music,bass')",
+  backgroundImage: `url(${HeroImage})`,
   backgroundSize: "cover",
   backgroundPosition: "center",
   color: "white",
@@ -29,9 +30,14 @@ const HeroContainer = styled(Box)({
 const HeroContent = styled(Box)({
   position: "relative",
   zIndex: 2,
+  padding: "0 1rem",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
 });
 
 const GoogleButton = styled(Button)({
+  marginTop:"1rem",
   backgroundColor: "white",
   color: "#424242",
   borderRadius: 24,
@@ -53,18 +59,36 @@ const GoogleButton = styled(Button)({
 const Hero = () => {
   const handleGoogleSignIn = () => {
     console.log("Google sign-in clicked");
+    // Integrate Google OAuth here
   };
 
   return (
     <HeroContainer>
       <HeroContent>
-        <Typography variant="h1" fontWeight={700} gutterBottom>
-          [ig-JAM-pəl]
+        <Typography
+          variant="h1"
+          fontWeight={700}
+          gutterBottom
+          sx={{
+            fontSize: { xs: "3rem", sm: "4rem", md: "6rem" },
+            lineHeight: 1.2,
+          }}
+        >
+          [&nbsp;ig-JAM-pəl&nbsp;]
         </Typography>
-        <Typography variant="subtitle1" color="gray" gutterBottom>
+        <Typography
+          variant="h4"
+          color="white"
+          gutterBottom
+          sx={{
+            fontSize: { xs: "1.5rem", sm: "2rem", md: "2.5rem" },
+            lineHeight: 1.4,
+          }}
+        >
           for only me: the bass hobbyist
         </Typography>
-        <GoogleButton onClick={handleGoogleSignIn} startIcon={<GoogleIcon />}>
+        <GoogleButton onClick={handleGoogleSignIn} startIcon={<GoogleIcon />
+        }>
           Sign in with Google
         </GoogleButton>
       </HeroContent>
