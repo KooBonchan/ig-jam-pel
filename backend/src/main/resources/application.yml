@@ -7,7 +7,6 @@ spring.config.activate.on-profile: common
 
 spring:
   application.name: igjampel
-  mvc.servlet.path: /api
   security:
     oauth2:
       client:

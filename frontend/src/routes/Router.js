@@ -1,13 +1,15 @@
 import React, { lazy } from 'react';
-import Loadable from '../layouts/full/shared/loadable/Loadable';
 import { createBrowserRouter, Navigate } from 'react-router';
+import Loadable from '../layouts/full/shared/loadable/Loadable';
+import MusicList from '../views/music/MusicList';
+import MusicRecord from '../views/music/MusicRecord';
 
 /* ***Layouts**** */
 const FullLayout = Loadable(lazy(() => import('../layouts/full/FullLayout')));
 const BlankLayout = Loadable(lazy(() => import('../layouts/blank/BlankLayout')));
 
 /* ****Pages***** */
-const Hero = Loadable(lazy(() => import ('../views/hero')));
+const Hero = Loadable(lazy(() => import ('../views/Hero')));
 const Dashboard = Loadable(lazy(() => import('../views/dashboard/Dashboard')))
 const Icons = Loadable(lazy(() => import('../views/icons/Icons')))
 const TypographyPage = Loadable(lazy(() => import('../views/utilities/TypographyPage')))
@@ -27,6 +29,12 @@ const Router = [
       { path: '/ui/typography', exact: true, element: <TypographyPage /> },
       { path: '/ui/shadow', exact: true, element: <Shadow /> },
       { path: '*', element: <Navigate to="/auth/404" /> },
+      { path: '/music',
+        children: [
+          { path: '', element: <MusicList /> },
+          { path: ':musicId', element: <MusicRecord /> },
+        ]
+      }
     ],
   },
   {

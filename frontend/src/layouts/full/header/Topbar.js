@@ -51,9 +51,9 @@ const Topbar = (props) => {
         >
             <img src={adminmartLogo} alt="logo" />
           <Stack spacing={1} direction="row" sx={{flexWrap:'wrap' , display : {xs:"none",lg:"flex"} }} >
-            <Link to="https://adminmart.com/support/" target='_blank' ><GhostButton startIcon={<IconLifebuoy size={18} />} variant="contained">Support</GhostButton></Link>
+            {/* <Link to="https://adminmart.com/support/" target='_blank' ><GhostButton startIcon={<IconLifebuoy size={18} />} variant="contained">Support</GhostButton></Link>
             <Link to="https://adminmart.com/" target='_blank' ><GhostButton startIcon={<IconGift size={18} />} variant="contained">Templates</GhostButton></Link>
-            <Link to="https://adminmart.com/hire-us/" target='_blank' ><GhostButton startIcon={<IconBriefcase size={18} />} variant="contained">Hire Us</GhostButton></Link>
+            <Link to="https://adminmart.com/hire-us/" target='_blank' ><GhostButton startIcon={<IconBriefcase size={18} />} variant="contained">Hire Us</GhostButton></Link> */}
           </Stack>
         </Stack>
         <Box flexGrow={1} />

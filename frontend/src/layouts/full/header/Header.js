@@ -56,9 +56,9 @@ const Header = (props) => {
             }),
           }}
         >
-          <Badge variant="dot" color="primary">
+          {/* <Badge variant="dot" color="primary">
             <IconBellRinging size="21" stroke="1.5" />
-          </Badge>
+          </Badge> */}
 
         </IconButton>
         <Box flexGrow={1} />

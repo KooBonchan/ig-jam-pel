@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Box, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 import HeroImage from 'src/assets/images/backgrounds/kari-shea-laHwVPkMTzY-unsplash.jpg';
 import GoogleIcon from '@mui/icons-material/Google';
+import axios from 'axios';
+import { useNavigate } from 'react-router';
 
 const HeroContainer = styled(Box)({
   display: "flex",
@@ -57,9 +59,50 @@ const GoogleButton = styled(Button)({
 });
 
 const Hero = () => {
+  const [user, setUser] = useState(null);
+  const [accessToken, setAccessToken] = useState(null);
+
+  const navigate = useNavigate();
+
   const handleGoogleSignIn = () => {
     window.location.href = 'http://localhost:8094/oauth2/authorization/google';
   };
+
+  const handleLogout = () => {
+    setUser(null);
+    setAccessToken(null);
+  }
+
+  const fetchUser = (token) => {
+    axios.get('http://localhost:8094/api/user', {
+      headers: {Authorization: `Bearer ${token}`},
+    })
+    .then((response) => {
+      setUser({
+        fullname: response.data.fullname,
+        picture: response.data.picture,
+      });
+      setAccessToken(token);
+      navigate("/music");
+    })
+    .catch((error) => {
+      console.error("Error fetching user: ", error);
+      if(error.response?.status === 401 || !token){
+        handleGoogleSignIn();
+      }
+    })
+  }
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get('access_token');
+    if (token) {
+      fetchUser(token);
+      window.history.replaceState({}, document.title, '/');
+    } else if (!accessToken){
+      handleGoogleSignIn();
+    }
+  }, [accessToken]);
 
   return (
     <HeroContainer>
