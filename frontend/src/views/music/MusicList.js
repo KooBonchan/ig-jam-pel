@@ -2,6 +2,7 @@ import { Avatar, IconButton, List, ListItem, ListItemAvatar, ListItemText, Typog
 import { styled } from '@mui/material/styles';
 import { Delete, Folder } from '@mui/icons-material';
 import * as React from 'react';
+import { Link } from 'react-router';
 
 const Demo = styled('div')(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
@@ -21,8 +22,9 @@ export default function MusicList() {
         Backing Tracks for Bass
       </Typography>
       <List dense={false}>
-        {Array(25).keys().map((i) => (
-          <ListItem key={i}
+        {Array(25).keys().map((v, i) => (
+          <Link key={i} to={`/music/${i+1}`}>
+          <ListItem
             secondaryAction={
               <IconButton edge="end" aria-label="delete">
                 <Delete />
@@ -38,7 +40,8 @@ export default function MusicList() {
               primary="Single-line item"
               secondary='Secondary text'
             />
-          </ListItem>)
+          </ListItem>
+          </Link>)
         )}
       </List>
     </Demo>

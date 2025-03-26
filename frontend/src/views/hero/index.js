@@ -93,16 +93,16 @@ const Hero = () => {
     })
   }
 
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const token = params.get('access_token');
-    if (token) {
-      fetchUser(token);
-      window.history.replaceState({}, document.title, '/');
-    } else if (!accessToken){
-      handleGoogleSignIn();
-    }
-  }, [accessToken]);
+  // useEffect(() => {
+  //   const params = new URLSearchParams(window.location.search);
+  //   const token = params.get('access_token');
+  //   if (token) {
+  //     fetchUser(token);
+  //     window.history.replaceState({}, document.title, '/');
+  //   } else if (!accessToken){
+  //     handleGoogleSignIn();
+  //   }
+  // }, [accessToken]);
 
   return (
     <HeroContainer>
