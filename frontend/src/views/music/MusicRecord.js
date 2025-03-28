@@ -8,7 +8,6 @@ import WaveSurfer from 'wavesurfer.js';
 
 
 export default function MusicRecord() {
-  const audioRef = React.useRef(new Audio(sampleMp3));
   const waveformRef = React.useRef(null);
   const wavesurferRef = React.useRef(null);
   const [isPlaying, setIsPlaying] = React.useState(false);
@@ -21,50 +20,40 @@ export default function MusicRecord() {
       cursorColor: 'navy',
       barWidth: 2,
       barRadius: 3,
-      height: 200,
-      width: 1000,
+      height: 100,
       responsive: true,
     });
 
     wavesurferRef.current.load(sampleMp3);
+
+    wavesurferRef.current.on('play', () => setIsPlaying(true));
+    wavesurferRef.current.on('pause', () => setIsPlaying(false));
+    wavesurferRef.current.on('finish', () => {
+      setIsPlaying(false);
+      wavesurferRef.current.setTime(0); // Reset to start when finished
+    });
+
     return () => {wavesurferRef.current.destroy();}
   }, []);
 
   const handlePlay = () => {
-    audioRef.current.play();
-    console.log('play');
-    setIsPlaying(true);
-    wavesurferRef.current.setTime(audioRef.current.currentTime);
+    wavesurferRef.current.play();
   }
   const handlePause = () => {
-    audioRef.current.pause();
-    console.log('pause', isPlaying);
-    setIsPlaying(false);
+    wavesurferRef.current.pause();
   }
   const handleStop = () => { 
-    audioRef.current.pause();
-    audioRef.current.currentTime = 0;
+    wavesurferRef.current.stop();
     setIsPlaying(false);
-    wavesurferRef.current.setTime(0);
   }
-
-  React.useEffect(() => {
-    const syncWaveform = () => {
-      if (isPlaying) {
-        wavesurferRef.current.setTime(audioRef.current.currentTime);
-      }
-    };
-    const interval = setInterval(syncWaveform, 100); // Update every 100ms
-    return () => clearInterval(interval);
-  }, [isPlaying]);
 
   return (
     <>
       <MusicControls isPlaying={isPlaying} onPlay={handlePlay} onPause={handlePause} onStop={handleStop}/>
-      <Box width='90%' height='20vh' sx={{ backgroundColor: '#ccc', margin: '3rem auto' }}>
+      <Box width='90%' height='100px' sx={{ backgroundColor: '#ccc', margin: '2rem auto' }}>
         <div ref={waveformRef} style={{ backgroundColor: '#ccc' }} />
       </Box>
-      <Box width='90%' height='20vh' sx={{ backgroundColor: '#ccc', margin: '3rem auto' }} />
+      <Box width='90%' height='200px' sx={{ backgroundColor: '#ccc', margin: '2rem auto' }} />
     </>
   );
 }
@@ -88,7 +77,7 @@ const MusicControls = ({isPlaying, onPlay, onPause, onStop}) => {
           aria-label="Play"
           onClick={onPlay}
           disabled={isPlaying}>
-          {!isMobile && "PLAY"}
+          {!isMobile && "LISTEN"}
         </Button>
         <Button startIcon={<Pause />} aria-label="Pause"
           onClick={onPause}
@@ -115,5 +104,3 @@ const MusicControls = ({isPlaying, onPlay, onPause, onStop}) => {
     </Container>
   );
 };
-
-
