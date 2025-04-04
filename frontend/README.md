@@ -20,3 +20,16 @@
 
 5. **Optional Metronome**:
    - Provide a metronome feature to play periodic clicks at a set tempo (BPM).
+
+
+## Feature expectations.
+
+1. Backing track
+   1. file, name, uploaded date
+   2. metadata: tempo, clicks and beats, offset.
+   3. to register: if recorded here, just register with given backing track.
+   4. to register new, user manually writes, with realtime testing.
+   5. possibly, track stack? not yet.
+2. Practice results
+   1. name, track stack
+   2. 
