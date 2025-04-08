@@ -1,8 +1,9 @@
-import React, { lazy } from 'react';
+import { lazy } from 'react';
 import { createBrowserRouter, Navigate } from 'react-router';
 import Loadable from '../layouts/full/shared/loadable/Loadable';
 import MusicList from '../views/music/MusicList';
 import MusicRecord from '../views/music/MusicRecord';
+import MusicUpload from '../views/music/MusicUpload';
 
 /* ***Layouts**** */
 const FullLayout = Loadable(lazy(() => import('../layouts/full/FullLayout')));
@@ -18,6 +19,8 @@ const Error = Loadable(lazy(() => import('../views/authentication/Error')));
 const Register = Loadable(lazy(() => import('../views/authentication/Register')));
 const Login = Loadable(lazy(() => import('../views/authentication/Login')));
 
+//TODO: 최종단계에서 Loadable로 최적화하기
+
 const Router = [
   {
     path: '/',
@@ -32,6 +35,7 @@ const Router = [
       { path: '/music',
         children: [
           { path: '', element: <MusicList /> },
+          { path: 'upload', element: <MusicUpload /> },
           { path: ':musicId', element: <MusicRecord /> },
         ]
       }
