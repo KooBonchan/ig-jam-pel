@@ -6,7 +6,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.Data;
 
+@Data
 @Entity
 public class AudioFile {
     @Id
@@ -19,7 +21,5 @@ public class AudioFile {
     private Long size;
     private String storagePath;
     private LocalDateTime uploadedAt;
-
-    // Getters, setters, builder (or use Lombok)
 }
 
